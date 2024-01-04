@@ -16,7 +16,7 @@ def send_to_feishu(content):
     将内容发送到飞书机器人。
     :param content: 要发送的内容
     """
-    webhook_url = "https://open.feishu.cn/open-apis/bot/v2/hook/89dc711e-b581-491c-b3a0-8c4c3cbb8e72"
+    webhook_url = os.getenv('FEISHU_WEBHOOK_URL')  # 从环境变量获取 Webhook URL
     headers = {"Content-Type": "application/json"}
     data = {
         "msg_type": "text",
