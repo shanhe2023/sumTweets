@@ -26,6 +26,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
+      - name: Upgrade setuptools
+        run: pip install --upgrade setuptools
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -35,8 +38,8 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
-          NITTER: ${{ env.NITTER }}
-          MINS: ${{ env.MINS }}
-          TARGET: ${{ env.TARGET }}
-          INFO: ${{ env.INFO }}
+          NITTER: ${{ secrets.NITTER }}
+          MINS: ${{ secrets.MINS }}
+          TARGET: ${{ secrets.TARGET }}
+          INFO: ${{ secrets.INFO }}
         run: python main.py
