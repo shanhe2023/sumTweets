@@ -5,3 +5,4 @@ markdown
 litellm
 pandas
 bs4
+setuptools
