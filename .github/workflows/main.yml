@@ -31,17 +31,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-
       - name: Run main.py
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          API_BASE_URL: ${{ vars.API_BASE_URL }}
-          MAILTO: ${{ secrets.MAILTO }}
-          MAIL: ${{ vars.MAIL }}
-          SMTP: ${{ vars.SMTP }}
-          MAILPWD: ${{ secrets.MAILPWD }}
-          NITTER: ${{ vars.NITTER }}
-          MINS: ${{ vars.MINS }}
-          TARGET: ${{ vars.TARGET }}
-          INFO: ${{ vars.INFO }}
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          NITTER: ${{ env.NITTER }}
+          MINS: ${{ env.MINS }}
+          TARGET: ${{ env.TARGET }}
+          INFO: ${{ env.INFO }}
         run: python main.py
